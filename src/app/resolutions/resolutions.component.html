@@ -1,0 +1,21 @@
+<section class="resolutions-page">
+	<aside class="resolution-buttons" aria-label="Resolution selection">
+		@for (resolution of resolutionButtons; track resolution.id) {
+			<button
+				type="button"
+				class="resolution-button"
+				[class.active]="selectedResolutionId() === resolution.id"
+				(click)="showResolution(resolution.id)"
+			>
+				{{ resolution.title }}
+			</button>
+		}
+	</aside>
+
+	<article class="resolution-content">
+		@if (selectedResolution(); as resolution) {
+			<h2>{{ resolution.title }}</h2>
+			<p class="resolution-text">{{ resolution.text }}</p>
+		}
+	</article>
+</section>

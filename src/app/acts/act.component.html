@@ -1,0 +1,60 @@
+<ng-container *ngIf="!selectedLocation">
+  <section class="act-intro">
+    <div class="intro-header">
+      <h2>{{ actTitle }}</h2>
+      <button
+        type="button"
+        class="intro-toggle"
+        [attr.aria-controls]="introContentId()"
+        [attr.aria-expanded]="introExpanded()"
+        (click)="toggleIntroExpanded()"
+      >
+        {{ introExpanded() ? 'Collapse Intro' : 'Expand Intro' }}
+      </button>
+    </div>
+
+    <div *ngIf="introExpanded()" [id]="introContentId()">
+      <p *ngFor="let line of introLines">{{ line }}</p>
+      <p *ngIf="lastLine" class="last-line">{{ lastLine }}</p>
+    </div>
+  </section>
+
+  <section class="network-container" *ngIf="locationNodes().length">
+    <h3>Location Network</h3>
+    <svg viewBox="0 0 1000 700" class="network-svg" role="img" aria-label="Act location network">
+      @for (line of connectionLines(); track line.id) {
+        <line
+          [attr.x1]="line.x1"
+          [attr.y1]="line.y1"
+          [attr.x2]="line.x2"
+          [attr.y2]="line.y2"
+          class="connection-line"
+        />
+      }
+
+      @for (node of locationNodes(); track node.location.id) {
+        <g class="location-group" (click)="onLocationClick(node.location)">
+          <circle [attr.cx]="node.x" [attr.cy]="node.y" r="22" class="location-circle" />
+          <text [attr.x]="node.x" [attr.y]="node.y + 5" text-anchor="middle" class="location-name">
+            {{ node.location.name }}
+          </text>
+        </g>
+      }
+    </svg>
+  </section>
+
+  <!-- <section class="locations-list" *ngIf="locations.length">
+    <h3>{{ actTitle }} Locations</h3>
+    <div *ngFor="let location of locations" class="location-card" (click)="onLocationClick(location)">
+      <h4>{{ location.name }}</h4>
+      <p>{{ location.introText }}</p>
+      <p><strong>Challenge:</strong> {{ location.challenge }}</p>
+    </div>
+  </section> -->
+</ng-container>
+
+<app-location
+  *ngIf="selectedLocation"
+  [location]="selectedLocation"
+  (close)="selectedLocation = null"
+></app-location>

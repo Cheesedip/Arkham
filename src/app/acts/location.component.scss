@@ -1,0 +1,47 @@
+.location-page {
+  max-width: 900px;
+}
+
+.back-button {
+  background: transparent;
+  border: none;
+  color: var(--vivid-pink);
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.title {
+  margin-top: 0;
+}
+
+.intro {
+  margin-bottom: 1rem;
+}
+
+.preserve-lines {
+  white-space: pre-wrap;
+}
+
+.spoiler-btn {
+  background: var(--orange-red);
+  color: white;
+  border: none;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.ending-text {
+  margin-top: 0.5rem;
+  padding: 0.6rem;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.ending-text.good {
+  border-left: 4px solid #4CAF50;
+}
+
+.ending-text.bad {
+  border-left: 4px solid #F44336;
+}

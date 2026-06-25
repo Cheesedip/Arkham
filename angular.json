@@ -61,6 +61,10 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "export": {
+              "outputHashing": "none",
+              "prerender": false
             }
           },
           "defaultConfiguration": "production"

@@ -1,0 +1,106 @@
+h2 {
+  margin-top: 0;
+}
+
+.act-intro {
+  line-height: 1.8;
+}
+
+.intro-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.intro-toggle {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.06);
+  color: white;
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.intro-toggle:hover {
+  background: rgba(0, 0, 0, 0.13);
+}
+
+.act-intro p {
+  margin: 0 0 1rem;
+}
+
+.last-line {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+.network-container {
+  margin-top: 2rem;
+}
+
+.network-container h3 {
+  margin-bottom: 1rem;
+}
+
+.network-svg {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  aspect-ratio: 1000 / 700;
+  border: 1px solid var(--gray-400);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.connection-line {
+  stroke: var(--vivid-pink);
+  stroke-width: 2;
+  opacity: 0.55;
+}
+
+.location-circle {
+  fill: var(--orange-red);
+  stroke: var(--vivid-pink);
+  stroke-width: 2;
+}
+
+.location-group {
+  cursor: pointer;
+}
+
+.location-name {
+  fill: white;
+  font-size: 12px;
+  font-weight: 700;
+  pointer-events: none;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.locations-list {
+  margin-top: 2rem;
+}
+
+.location-card {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.03);
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.location-card:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.location-card h4 {
+  margin: 0 0 0.5rem;
+}

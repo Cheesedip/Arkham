@@ -1,0 +1,56 @@
+.network-svg {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  aspect-ratio: 1000 / 800;
+  border: 1px solid var(--gray-400);
+  border-radius: 0.5rem;
+  background: rgba(19.37%, 0.6%, 30.98%, 0.05);
+}
+
+.connection-line {
+  stroke: var(--vivid-pink);
+  stroke-width: 2;
+  opacity: 0.6;
+}
+
+.location-square {
+  fill: var(--orange-red);
+  stroke: var(--vivid-pink);
+  stroke-width: 2;
+  cursor: pointer;
+  transition: fill 0.3s ease;
+}
+
+.location-square:hover {
+  fill: var(--vivid-pink);
+}
+
+.location-group {
+  pointer-events: auto;
+}
+
+.location-name {
+  fill: white;
+  font-size: 14px;
+  font-weight: 700;
+  pointer-events: auto;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), -1px -1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.act-intro {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  color: #e5e5e5;
+}
+
+.act-intro p {
+  margin: 0 0 1rem;
+}
+
+.selected-debug {
+  margin-top: 1rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+}

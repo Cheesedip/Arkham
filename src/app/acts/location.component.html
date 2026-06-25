@@ -1,0 +1,25 @@
+<div class="location-page">
+  <button class="back-button" (click)="close.emit()">← Back</button>
+
+  <h2 class="title">{{ location?.name }}</h2>
+
+  <div class="intro">
+    <p class="preserve-lines">{{ location?.introText }}</p>
+  </div>
+
+  <div class="endings">
+    <div class="ending-block">
+      <button class="spoiler-btn" (click)="showGood = !showGood">
+        {{ showGood ? 'Hide' : 'Show' }} Good Ending
+      </button>
+      <div *ngIf="showGood" class="ending-text good preserve-lines">{{ location?.good }}</div>
+    </div>
+
+    <div class="ending-block">
+      <button class="spoiler-btn" (click)="showBad = !showBad">
+        {{ showBad ? 'Hide' : 'Show' }} Bad Ending
+      </button>
+      <div *ngIf="showBad" class="ending-text bad preserve-lines">{{ location?.bad }}</div>
+    </div>
+  </div>
+</div>
