@@ -41,7 +41,7 @@
             class="location-circle"
             [class.last-visited-circle]="isLastVisitedLocation(node.location)"
           />
-          <text [attr.x]="node.x" [attr.y]="node.y + 5" text-anchor="middle" class="location-name">
+          <text [attr.x]="node.x" [attr.y]="node.y - 28" text-anchor="middle" class="location-name">
             {{ node.location.name }}
           </text>
         </g>
