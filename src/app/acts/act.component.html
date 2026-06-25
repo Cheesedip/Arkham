@@ -34,7 +34,13 @@
 
       @for (node of locationNodes(); track node.location.id) {
         <g class="location-group" (click)="onLocationClick(node.location)">
-          <circle [attr.cx]="node.x" [attr.cy]="node.y" r="22" class="location-circle" />
+          <circle
+            [attr.cx]="node.x"
+            [attr.cy]="node.y"
+            r="22"
+            class="location-circle"
+            [class.last-visited-circle]="isLastVisitedLocation(node.location)"
+          />
           <text [attr.x]="node.x" [attr.y]="node.y + 5" text-anchor="middle" class="location-name">
             {{ node.location.name }}
           </text>

@@ -68,6 +68,12 @@ h2 {
   stroke-width: 2;
 }
 
+.location-circle.last-visited-circle {
+  stroke: #57d56f;
+  stroke-width: 4;
+  filter: drop-shadow(0 0 4px rgba(87, 213, 111, 0.45));
+}
+
 .location-group {
   cursor: pointer;
 }

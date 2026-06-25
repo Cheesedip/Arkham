@@ -6,6 +6,12 @@ interface ResolutionEntry {
   text: string;
 }
 
+interface ResolutionButton {
+  id: number;
+  title: string;
+  tone: 'good' | 'bad';
+}
+
 @Component({
   selector: 'app-resolutions',
   standalone: true,
@@ -202,10 +208,12 @@ and the quiet certainty that this, now and always, is the world.`
     }
   ];
 
-  readonly resolutionButtons = this.resolutions.map(resolution => ({
-    id: resolution.id,
-    title: resolution.title
-  }));
+  readonly resolutionButtons: ResolutionButton[] = [
+    { id: 1, title: 'Resolution 1', tone: 'good' },
+    { id: 2, title: 'Resolution 2', tone: 'good' },
+    { id: 3, title: 'Resolution 3', tone: 'bad' },
+    { id: 4, title: 'Resolution 4', tone: 'bad' }
+  ];
 
   readonly selectedResolutionId = signal<number>(1);
 

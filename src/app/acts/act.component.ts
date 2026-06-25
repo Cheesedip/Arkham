@@ -2,6 +2,7 @@ import { Component, Input, signal, ChangeDetectionStrategy, inject, OnChanges, P
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { LocationComponent } from './location.component';
 import type { Location } from './location.model';
+import { LastVisitedLocationService } from '../services/last-visited-location.service';
 
 interface Position {
   x: number;
@@ -37,6 +38,7 @@ export class ActComponent implements OnChanges {
 
   private readonly platformId = inject(PLATFORM_ID);
   private readonly isBrowser = isPlatformBrowser(this.platformId);
+  private readonly lastVisitedLocationService = inject(LastVisitedLocationService);
   private readonly introStateStoragePrefix = 'arkham:intro-expanded';
   private introStateStorageKey = `${this.introStateStoragePrefix}:default`;
 
@@ -73,7 +75,12 @@ export class ActComponent implements OnChanges {
   }
 
   onLocationClick(location: Location) {
+    this.lastVisitedLocationService.markVisited(this.actKey(), location.id);
     this.selectedLocation = location;
+  }
+
+  isLastVisitedLocation(location: Location): boolean {
+    return this.lastVisitedLocationService.isLastVisited(this.actKey(), location.id);
   }
 
   toggleIntroExpanded(): void {
@@ -86,7 +93,11 @@ export class ActComponent implements OnChanges {
   }
 
   introContentId(): string {
-    return `intro-content-${this.buildActSlug(this.actTitle)}`;
+    return `intro-content-${this.actKey()}`;
+  }
+
+  private actKey(): string {
+    return this.buildActSlug(this.actTitle);
   }
 
   private restoreIntroExpandedState(): void {

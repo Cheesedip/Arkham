@@ -22,17 +22,58 @@
   white-space: pre-wrap;
 }
 
+.endings {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas: 'good bad';
+  gap: 0.9rem;
+  align-items: start;
+}
+
+.ending-block.good-ending {
+  grid-area: good;
+}
+
+.ending-block.bad-ending {
+  grid-area: bad;
+}
+
+.ending-block {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 0.55rem;
+}
+
 .spoiler-btn {
-  background: var(--orange-red);
+  background: rgba(255, 255, 255, 0.03);
   color: white;
-  border: none;
-  padding: 0.4rem 0.6rem;
-  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  min-height: 3.1rem;
+  padding: 0.8rem 0.95rem;
+  border-radius: 0.6rem;
   cursor: pointer;
+  text-align: left;
+  font-size: 0.95rem;
+  line-height: 1.25;
+  transition: background 120ms ease, border-color 120ms ease, transform 120ms ease;
+}
+
+.spoiler-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+.spoiler-btn.good-ending {
+  border-color: rgba(86, 211, 153, 0.45);
+}
+
+.spoiler-btn.bad-ending {
+  border-color: rgba(244, 96, 96, 0.45);
 }
 
 .ending-text {
-  margin-top: 0.5rem;
+  margin-top: 0;
   padding: 0.6rem;
   border-radius: 4px;
   background: rgba(0, 0, 0, 0.04);
@@ -44,4 +85,13 @@
 
 .ending-text.bad {
   border-left: 4px solid #F44336;
+}
+
+@media (max-width: 760px) {
+  .endings {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'good'
+      'bad';
+  }
 }

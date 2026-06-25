@@ -1,32 +1,65 @@
 .resolutions-page {
 	display: grid;
-	grid-template-columns: 220px minmax(0, 1fr);
+	grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
 	gap: 1.25rem;
 }
 
 .resolution-buttons {
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	grid-template-areas:
+		'good-1 bad-1'
+		'good-2 bad-2';
 	gap: 0.75rem;
+	align-content: start;
 }
 
 .resolution-button {
 	text-align: left;
-	padding: 0.75rem 0.9rem;
+	min-height: 3.1rem;
+	padding: 0.8rem 0.95rem;
 	border: 1px solid rgba(255, 255, 255, 0.2);
 	border-radius: 0.6rem;
 	background: rgba(255, 255, 255, 0.03);
 	color: white;
 	cursor: pointer;
+	font-size: 0.95rem;
+	line-height: 1.25;
+	transition: background 120ms ease, border-color 120ms ease, transform 120ms ease;
 }
 
 .resolution-button:hover {
 	background: rgba(255, 255, 255, 0.08);
+	transform: translateY(-1px);
 }
 
 .resolution-button.active {
 	border-color: var(--vivid-pink);
 	background: rgba(255, 255, 255, 0.12);
+}
+
+.resolution-button.good-ending:nth-child(1) {
+	grid-area: good-1;
+}
+
+.resolution-button.good-ending:nth-child(2) {
+	grid-area: good-2;
+}
+
+.resolution-button.bad-ending:nth-child(3) {
+	grid-area: bad-1;
+}
+
+.resolution-button.bad-ending:nth-child(4) {
+	grid-area: bad-2;
+}
+
+.resolution-button.good-ending {
+	border-color: rgba(86, 211, 153, 0.45);
+}
+
+.resolution-button.bad-ending {
+	border-color: rgba(244, 96, 96, 0.45);
 }
 
 .resolution-content h2 {
@@ -41,5 +74,14 @@
 @media (max-width: 900px) {
 	.resolutions-page {
 		grid-template-columns: 1fr;
+	}
+
+	.resolution-buttons {
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			'good-1'
+			'good-2'
+			'bad-1'
+			'bad-2';
 	}
 }

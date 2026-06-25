@@ -4,6 +4,8 @@
 			<button
 				type="button"
 				class="resolution-button"
+				[class.good-ending]="resolution.tone === 'good'"
+				[class.bad-ending]="resolution.tone === 'bad'"
 				[class.active]="selectedResolutionId() === resolution.id"
 				(click)="showResolution(resolution.id)"
 			>
